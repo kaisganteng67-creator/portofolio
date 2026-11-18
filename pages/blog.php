@@ -1,0 +1,2 @@
+<span class="script">Notes</span><h2 class="text-4xl mb-6">Blog Pengembang</h2>
+<?php $rows=all('SELECT * FROM blog_posts ORDER BY id DESC');foreach($rows as $b):?><details class="card mb-3"><summary class="font-semibold cursor-pointer"><?=e($b['title'])?> <span class="font-normal text-sm">— <?=e($b['excerpt'])?></span></summary><div class="mt-3 whitespace-pre-line"><?=e($b['content'])?></div></details><?php endforeach; if(!$rows)echo '<p>Belum ada artikel.</p>';?>

@@ -1,0 +1,10 @@
+<FilesMatch "\.(php|phtml|phar)$">
+Require all denied
+</FilesMatch>
+<IfModule mod_headers.c>
+Header set Cache-Control "public, max-age=2592000, immutable"
+</IfModule>
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault "access plus 30 days"
+</IfModule>

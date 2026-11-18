@@ -1,0 +1,3 @@
+<span class="script">Journey</span><h2 class="text-4xl mb-6">Pengalaman</h2>
+<?php $g=group(all('SELECT title,type,place,period,description,image FROM experiences ORDER BY id'),'type');foreach(['plk'=>'Pengalaman PLK','organisasi'=>'Pengalaman Organisasi','lomba'=>'Pengalaman Lomba'] as $t=>$l):?><h3 class="mt-4 mb-2"><?=$l?></h3>
+<?php $rows=$g[$t]??[];foreach($rows as $r):?><div class="card mb-3"><b><?=e($r['title'])?></b> — <?=e($r['place'])?> (<?=e($r['period'])?>)<p><?=e($r['description'])?></p><?php if($r['image']):?><img src="<?=img($r['image'])?>" class="h-32 mt-2" loading="lazy" decoding="async" alt=""><?php endif?></div><?php endforeach; if(!$rows)echo '<p>Belum ada data.</p>';endforeach?>
